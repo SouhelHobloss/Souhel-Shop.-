@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Souhel Hobloss</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+
+</head>
+
+<body>
+
+<header>
+<h1>🏪 Souhel Hobloss</h1>
+<p>إدارة المخزون والمبيعات</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+  
+  <div class="card">
+
+<h2>💱 سعر الصرف</h2>
+
+<input id="rate"
+type="number"
+placeholder="مثلاً 90000">
+
+<button onclick="saveRate()">
+حفظ سعر الصرف
+</button>
+
+</div>
+
+<br>
+
+<h2>📊 لوحة التحكم</h2>
+
+<p>📦 عدد المنتجات:
+<b id="countProducts">0</b>
+</p>
+
+<p>📦 إجمالي الكمية:
+<b id="countQty">0</b>
+</p>
+
+<p>💰 الأرباح:
+<b id="totalMoney">0</b> $
+</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<div class="card">
+
+<h2>➕ إضافة منتج</h2>
+
+<input id="name" placeholder="اسم المنتج">
+
+<div style="display:flex;gap:10px;align-items:center;">
+
+<input id="price" type="number" placeholder="السعر" style="flex:1;">
+
+<select id="currency" style="width:120px;">
+<option value="USD">💵 USD</option>
+<option value="LBP">🇱🇧 LBP</option>
+</select>
+
+</div>
+
+<input id="qty" type="number" placeholder="الكمية">
+
+<input id="image" type="file" accept="image/*">
+
+<button onclick="addProduct()">
+إضافة المنتج
+</button>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>📦 المنتجات</h2>
+
+<button onclick="exportExcel()">
+📊 تصدير إلى Excel
+</button>
+
+<input id="search"
+placeholder="🔍 ابحث عن منتج..."
+oninput="showProducts()">
+
+<button onclick="startScanner()">
+📷 مسح QR
+</button>
+
+<div id="reader"
+style="width:300px;margin:20px auto;"></div>
+
+<div id="products"></div>
+
+<hr>
+
+<h2>📜 سجل المبيعات</h2>
+
+<div id="sales"></div>
+
+</div>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
